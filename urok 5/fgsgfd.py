@@ -109,13 +109,13 @@
 # else:
 #     print('ti na ugare?')
 
-homyaks = int(input('homyaki: '))
-
-if 11 <= homyaks <= 19:
-    print(homyaks, 'хомяков')
-elif homyaks % 10 == 1:
-    print(homyaks, 'хомяк')
-elif 2 <= homyaks % 10 <= 4:
-    print(homyaks, 'хоямка')
-else:
-    print(homyaks, 'хомяков')
+# homyaks = int(input('homyaki: '))
+#
+# if 11 <= homyaks <= 19:
+#     print(homyaks, 'хомяков')
+# elif homyaks % 10 == 1:
+#     print(homyaks, 'хомяк')
+# elif 2 <= homyaks % 10 <= 4:
+#     print(homyaks, 'хоямка')
+# else:
+#     print(homyaks, 'хомяков')
