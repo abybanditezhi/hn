@@ -5,6 +5,10 @@ while not should_end:
     text = input('vvedi slovo: ')
     text = list(text)
     shift = int(input('sdvig: '))
+    if shift > len(alphabet):
+        shift = shift % len(alphabet)
+    elif shift < -len(alphabet):
+        shift = shift % -len(alphabet)
 
     cipher_text = ''
     for i in text:
@@ -19,3 +23,8 @@ while not should_end:
             else:
                 new_pos = pos + shift
             cipher_text += alphabet[new_pos]
+
+    print(cipher_text)
+    restart = input('дальше? y - да n - нет ')
+    if restart == 'n':
+        should_end = True
