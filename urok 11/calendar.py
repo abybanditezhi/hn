@@ -17,6 +17,35 @@ cal_text = ''
 cal_text += (' ' * 34) + MONTHS[month - 1] + ' ' + str(year) + '\n'
 for i in range(7):
     cal_text += DAYS[i] + ' '
-print(cal_text)
+cal_text += '\n'
 weekSeeparator = ('+----------' * 7 + '\n')
-blankRow = ('          ' * 7 + '|\n')
+blankRow = ('|          ' * 7 + '|\n')
+
+currentdate = datetime.date(year, month, 1)
+
+while currentdate.weekday() != 0:
+    currentdate -= datetime.timedelta(days=1)
+
+while True:
+    cal_text += weekSeeparator
+    daynumberrow = ''
+    for i in range(7):
+        daynumberlable = str(currentdate.day).rjust(2)
+        daynumberrow += '|' + daynumberlable + (' ' * 8)
+        currentdate += datetime.timedelta(days=1)
+    cal_text += '|\n'
+    cal_text += daynumberrow
+    for i in range(3):
+        cal_text += blankRow
+
+    if currentdate.month != month:
+        break
+
+cal_text += weekSeeparator
+print(cal_text)
+
+filename = 'calendar_{}_{}.txt'.format(month, year)
+with open(filename, 'w') as file:
+    file.write(cal_text)
+
+print('sohraneno v' + filename)
