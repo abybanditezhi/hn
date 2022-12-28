@@ -61,14 +61,14 @@
 #         print(f'{i} | {j}')
 #         break
 
-dict = {'k1': 1,
-        'k2': 2,
-        'k3': 3,
-        'k4': 4,
-        'k5': 5}
-a = dict['k1']
-dict['k1'] = dict['k5']
-dict['k5'] = a
-del dict['k2']
-dict['new_key'] = 'new_value'
-print(dict)
+# dict = {'k1': 1,
+#         'k2': 2,
+#         'k3': 3,
+#         'k4': 4,
+#         'k5': 5}
+# a = dict['k1']
+# dict['k1'] = dict['k5']
+# dict['k5'] = a
+# del dict['k2']
+# dict['new_key'] = 'new_value'
+# print(dict)
