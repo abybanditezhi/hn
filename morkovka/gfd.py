@@ -50,7 +50,7 @@ while True:
     action = input(f'нужно выбрать\n'
                    f'1 блеф: сказать что в коробке {p1Box}\n'
                    f'2 правда: сказать что в коробке {p2Box}\n'
-                   f'(б - блеф, п - правда)').lower()
+                   f'(б - блеф, п - правда)').upper()
     while action != 'Б' and action != 'П':
         action = input(f'нужно выбрать\n'
                        f'1 блеф: сказать что в коробке {p1Box}\n'
@@ -62,3 +62,23 @@ while True:
         print(f'{p2Name} сообщает, что в его коробке {p1Box}')
     else:
         print(f'{p2Name} сообщает, что в его коробке {p2Box}')
+
+    change = input('меняетесь?\n'
+                   'д - да, н - нет').upper()
+
+    if change == 'Д':
+        p1Box, p2Box = p2Box, p1Box
+        input(f'{p1Name} закрывает глаза, (enter)')
+
+        if p2Box == 'МОРКОВКА':
+            box2 = box_carrot.format(COLOR2.center(13).split('\n'))
+        else:
+            box2 = box_empty.format(COLOR2.center(13).split('\n'))
+    else:
+        break
+print('==========результаты==========')
+print(generate_boxes(p1Box, p2Box))
+if p1Box == 'МОРКОВКА':
+    print(f'{p1Name} win')
+else:
+    print(f'{p2Name} win')
