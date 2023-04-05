@@ -3,14 +3,22 @@ from random import choice
 
 
 def ofor():
-    u = choice(users)
     print(f'Логин: {u.login}')
     print(f'Имя: {u.imya}')
     print(f'Фамилия: {u.falimia}')
     print(f'Посты: {u.posts}')
 
 
+def next():
+    global u
+    while True:
+        u = choice(users)
+        if u.login != current.login:
+            break
+
+
 def session():
+    next()
     while True:
         ofor()
         print('''[Возможные действия]: 
@@ -22,7 +30,11 @@ def session():
         if spros == 'ВЫЙТИ':
             break
         elif spros == 'СЛЕДУЮЩИЙ':
-            continue
+            next()
+        elif spros == 'ПОДПИСАТЬСЯ':
+            current.podpiski += 1
+            u.podpischiki += 1
+
 
 
 a = Persons()
@@ -35,5 +47,6 @@ p = input('скажи пароль: ')
 
 for i in users:
     if i.log_in(l, p) == True:
+        current = i
         session()
 print(a.imya)
